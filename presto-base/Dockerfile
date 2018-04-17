@@ -5,7 +5,7 @@
 FROM ubuntu:16.04
 MAINTAINER lewuathe
 
-ENV PRESTO_VERSION=0.197-SNAPSHOT
+ENV PRESTO_VERSION=0.157.1-t.0.6
 ENV PRESTO_HOME=/usr/local/presto
 ENV BASE_URL=https://repo1.maven.org/maven2/com/facebook/presto
 
@@ -30,6 +30,7 @@ ADD presto-server-${PRESTO_VERSION}.tar.gz /usr/local
 # RUN wget ${BASE_URL}/presto-server/${PRESTO_VERSION}/presto-server-${PRESTO_VERSION}.tar.gz
 RUN ln -s /usr/local/presto-server-${PRESTO_VERSION} $PRESTO_HOME
 
+ADD stdudf ${PRESTO_HOME}/plugin/stdudf
 ADD scripts ${PRESTO_HOME}/scripts
 
 # Create data dir

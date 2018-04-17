@@ -9,6 +9,8 @@ services:
     ports:
       - "8080:8080"
     container_name: "coordinator"
+    volumes:
+      - /home/smahadik:/home/smahadik
 
   worker0:
     build: 
@@ -18,6 +20,8 @@ services:
     container_name: "worker0"
     ports:
       - "8081:8081"
+    volumes:
+      - /home/smahadik:/home/smahadik
   worker1:
     build: 
       context: ./presto-worker
@@ -26,6 +30,8 @@ services:
     container_name: "worker1"
     ports:
       - "8082:8081"
+    volumes:
+      - /home/smahadik:/home/smahadik
   worker2:
     build: 
       context: ./presto-worker
@@ -34,3 +40,5 @@ services:
     container_name: "worker2"
     ports:
       - "8083:8081"
+    volumes:
+      - /home/smahadik:/home/smahadik
